@@ -1,10 +1,17 @@
-import sys
+import argparse
 
-def main(argv):
-    if len(argv) > 1:
-        print(f'Olá {argv[1]}!')
-    else:
-        print('Olá Mundo!')
+def main():
+    parser = argparse.ArgumentParser(
+        description='Cumprimenta alguém.'
+    )
+    parser.add_argument(
+        "nome",
+        nargs='?',
+        default='mundo',
+        help='Nome da pessoa a ser cumprimentada'
+    )
+    args = parser.parse_args()
+    print(f'Olá {args.nome}!')
 
 if __name__ == '__main__':
-    main(sys.argv)
+    main()
